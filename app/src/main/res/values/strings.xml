@@ -1,0 +1,34 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">MyMineSweeper</string>
+    <string name="saved_high_score_key">highscore</string>
+    <string name="mine_count">Mine Count</string>
+    <string name="timer">Timer</string>
+    <string name="last_time">lastTime</string>
+    <string name="_12">12</string>
+    <string name="minesweeper">MINESWEEPER</string>
+    <string name="easy">Easy</string>
+    <string name="medium">Medium</string>
+    <string name="hard">Hard</string>
+    <string name="_00">00</string>
+    <string name="_0" tools:ignore="DuplicateDefinition">00</string>
+    <string name="best_time">Best Time</string>
+    <string name="last_game_time">Last Game Time</string>
+    <string name="choose_difficulty">Choose Difficulty</string>
+    <string name="or">OR</string>
+    <string name="start">Start</string>
+    <string name="best_time2">Best Time :</string>
+    <string name="last_game_time2">Last Game Time :</string>
+    <string name="make_a_custom_board">Make A Custom Board</string>
+    <string name="enter_number_of_rows">Enter Number Of Rows</string>
+    <string name="enter_number_of_column">Enter Number Of Column</string>
+    <string name="enter_number_of_mines">Enter Number Of Mines</string>
+    <string name="title_activity_custom_board">CustomBoard</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+</resources>
