@@ -1,0 +1,78 @@
+[33mcommit fcc963590b9e7476ed3c555d54aa68623461d5ec[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Mohammad Owais <mohammadowais241198@gmail.com>
+Date:   Fri May 28 21:42:43 2021 +0530
+
+    base commit
+
+ .gitignore                                         |  15 [32m+[m
+ .idea/.gitignore                                   |   3 [32m+[m
+ .idea/compiler.xml                                 |   6 [32m+[m
+ .idea/encodings.xml                                |   4 [32m+[m
+ .idea/gradle.xml                                   |  24 [32m++[m
+ .idea/jarRepositories.xml                          |  25 [32m++[m
+ .idea/misc.xml                                     |  14 [32m+[m
+ app/.gitignore                                     |   1 [32m+[m
+ app/build.gradle                                   |  55 [32m+++[m
+ app/proguard-rules.pro                             |  21 [32m+[m
+ .../com/i/myminesweeper/ExampleInstrumentedTest.kt |  24 [32m++[m
+ app/src/main/AndroidManifest.xml                   |  24 [32m++[m
+ .../main/java/com/i/myminesweeper/CustomBoard.kt   |  40 [32m++[m
+ app/src/main/java/com/i/myminesweeper/GamePlay.kt  | 475 [32m+++++++++++++++++++++[m
+ .../main/java/com/i/myminesweeper/MainActivity.kt  |  98 [32m+++++[m
+ app/src/main/java/com/i/myminesweeper/MineCell.kt  |  21 [32m+[m
+ app/src/main/java/com/i/myminesweeper/Results.kt   |  34 [32m++[m
+ app/src/main/res/drawable-v24/bomb.png             | Bin [31m0[m -> [32m2046[m bytes
+ app/src/main/res/drawable-v24/crossedflag.png      | Bin [31m0[m -> [32m2885[m bytes
+ app/src/main/res/drawable-v24/eight.png            | Bin [31m0[m -> [32m2757[m bytes
+ app/src/main/res/drawable-v24/five.png             | Bin [31m0[m -> [32m2712[m bytes
+ app/src/main/res/drawable-v24/flag.xml             |  10 [32m+[m
+ app/src/main/res/drawable-v24/four.png             | Bin [31m0[m -> [32m2676[m bytes
+ app/src/main/res/drawable-v24/gameover.jpg         | Bin [31m0[m -> [32m49984[m bytes
+ app/src/main/res/drawable-v24/happy_face.png       | Bin [31m0[m -> [32m2307[m bytes
+ .../ic_baseline_question_answer_24.xml             |   5 [32m+[m
+ .../res/drawable-v24/ic_baseline_refresh_24.xml    |  10 [32m+[m
+ .../res/drawable-v24/ic_launcher_background.xml    |  74 [32m++++[m
+ .../res/drawable-v24/ic_launcher_foreground.xml    |  30 [32m++[m
+ app/src/main/res/drawable-v24/mine.png             | Bin [31m0[m -> [32m2656[m bytes
+ app/src/main/res/drawable-v24/mybutton.xml         |  25 [32m++[m
+ app/src/main/res/drawable-v24/one.png              | Bin [31m0[m -> [32m2613[m bytes
+ app/src/main/res/drawable-v24/questionmark.jpg     | Bin [31m0[m -> [32m91370[m bytes
+ app/src/main/res/drawable-v24/sad_face.png         | Bin [31m0[m -> [32m2175[m bytes
+ app/src/main/res/drawable-v24/seven.png            | Bin [31m0[m -> [32m2673[m bytes
+ app/src/main/res/drawable-v24/six.png              | Bin [31m0[m -> [32m2744[m bytes
+ app/src/main/res/drawable-v24/ten.png              | Bin [31m0[m -> [32m2553[m bytes
+ app/src/main/res/drawable-v24/three.png            | Bin [31m0[m -> [32m2763[m bytes
+ app/src/main/res/drawable-v24/two.png              | Bin [31m0[m -> [32m2717[m bytes
+ app/src/main/res/drawable-v24/won.png              | Bin [31m0[m -> [32m2447[m bytes
+ app/src/main/res/drawable-v24/zero.png             | Bin [31m0[m -> [32m2537[m bytes
+ .../main/res/drawable/ic_launcher_background.xml   | 170 [32m++++++++[m
+ app/src/main/res/layout/activity_custom_board.xml  |  93 [32m++++[m
+ app/src/main/res/layout/activity_game_play.xml     | 107 [32m+++++[m
+ app/src/main/res/layout/activity_main.xml          | 203 [32m+++++++++[m
+ app/src/main/res/layout/activity_results.xml       |  53 [32m+++[m
+ app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml |   5 [32m+[m
+ .../res/mipmap-anydpi-v26/ic_launcher_round.xml    |   5 [32m+[m
+ app/src/main/res/mipmap-hdpi/ic_launcher.png       | Bin [31m0[m -> [32m3593[m bytes
+ app/src/main/res/mipmap-hdpi/ic_launcher_round.png | Bin [31m0[m -> [32m5339[m bytes
+ app/src/main/res/mipmap-mdpi/ic_launcher.png       | Bin [31m0[m -> [32m2636[m bytes
+ app/src/main/res/mipmap-mdpi/ic_launcher_round.png | Bin [31m0[m -> [32m3388[m bytes
+ app/src/main/res/mipmap-xhdpi/ic_launcher.png      | Bin [31m0[m -> [32m4926[m bytes
+ .../main/res/mipmap-xhdpi/ic_launcher_round.png    | Bin [31m0[m -> [32m7472[m bytes
+ app/src/main/res/mipmap-xxhdpi/ic_launcher.png     | Bin [31m0[m -> [32m7909[m bytes
+ .../main/res/mipmap-xxhdpi/ic_launcher_round.png   | Bin [31m0[m -> [32m11873[m bytes
+ app/src/main/res/mipmap-xxxhdpi/ic_launcher.png    | Bin [31m0[m -> [32m10652[m bytes
+ .../main/res/mipmap-xxxhdpi/ic_launcher_round.png  | Bin [31m0[m -> [32m16570[m bytes
+ app/src/main/res/values-night/themes.xml           |  16 [32m+[m
+ app/src/main/res/values/colors.xml                 |  10 [32m+[m
+ app/src/main/res/values/dimens.xml                 |   3 [32m+[m
+ app/src/main/res/values/strings.xml                |  34 [32m++[m
+ app/src/main/res/values/themes.xml                 |  25 [32m++[m
+ .../java/com/i/myminesweeper/ExampleUnitTest.kt    |  17 [32m+[m
+ build.gradle                                       |  27 [32m++[m
+ gradle.properties                                  |  21 [32m+[m
+ gradle/wrapper/gradle-wrapper.jar                  | Bin [31m0[m -> [32m54329[m bytes
+ gradle/wrapper/gradle-wrapper.properties           |   6 [32m+[m
+ gradlew                                            | 172 [32m++++++++[m
+ gradlew.bat                                        |  84 [32m++++[m
+ settings.gradle                                    |   2 [32m+[m
+ 71 files changed, 2091 insertions(+)

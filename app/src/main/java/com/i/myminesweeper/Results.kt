@@ -12,7 +12,7 @@ class Results: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_results)
 
-        //        values from gameplay
+        // values from gameplay
         var intent = getIntent()
         var showName = intent.getStringExtra("player_name")
         var showResult = intent.getStringExtra("result")
