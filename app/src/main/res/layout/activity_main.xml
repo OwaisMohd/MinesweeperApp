@@ -146,6 +146,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:text="@string/or"
+                android:textStyle="bold"
                 android:textColor="#000"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -183,13 +184,15 @@
                 android:id="@+id/rules"
                 android:layout_width="42dp"
                 android:layout_height="34dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
                 android:background="@drawable/message_24"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.924"
+                app:layout_constraintHorizontal_bias="0.916"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.099" />
+                app:layout_constraintVertical_bias="0.147" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
