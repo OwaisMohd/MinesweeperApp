@@ -187,7 +187,7 @@
                 android:id="@+id/rules"
                 android:layout_width="42dp"
                 android:layout_height="34dp"
-                android:background="@drawable/ic_baseline_question_answer_24"
+                android:background="@drawable/message_24"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.924"
