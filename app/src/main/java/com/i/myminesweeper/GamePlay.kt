@@ -40,8 +40,7 @@ class GamePlay: AppCompatActivity() {
             chronomter.base = SystemClock.elapsedRealtime()
             chronomter.start()
             Toast.makeText(this, "Game Starts", Toast.LENGTH_SHORT).show()
-            isPlay  =true
-
+            isPlay=true
         }
 
         val intent = intent
@@ -60,9 +59,9 @@ class GamePlay: AppCompatActivity() {
         }
         else{
             var row = intent.getIntExtra("height",0)
-            var col = intent.getIntExtra("width",0)
+            var column = intent.getIntExtra("width",0)
             var mine = intent.getIntExtra("mines",0)
-            setUpBoard(row,col,mine)
+            setUpBoard(row,column,mine)
         }
         restart.setOnClickListener{
             gameRestart()

@@ -21,9 +21,9 @@ class MainActivity : AppCompatActivity() {
 
         sharedPreferences = this.getSharedPreferences("time", Context.MODE_PRIVATE)
         bestTime.text=sharedPreferences.getString("Best","00:00")
-        val ltime: String? =sharedPreferences.getString("Last","00:00")
+        val lasttime: String? =sharedPreferences.getString("Last","00:00")
 
-        lastGameTime.text= ltime
+        lastGameTime.text= lasttime
 
         /* when user clicks on Make Custom Button */
         custombutton.setOnClickListener{
