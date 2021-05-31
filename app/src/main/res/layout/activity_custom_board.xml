@@ -68,7 +68,7 @@
         android:layout_marginTop="40dp"
         android:padding="10dp"
         android:text="Enter The Dimensions"
-        android:textColor="#00008B"
+        android:textColor="@color/blue200"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
