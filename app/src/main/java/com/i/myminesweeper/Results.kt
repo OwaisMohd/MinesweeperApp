@@ -26,7 +26,6 @@ class Results: AppCompatActivity() {
         home.setOnClickListener {
             Toast.makeText(this,"Thank You For Playing", Toast.LENGTH_SHORT).show()
             val intent= Intent(this, MainActivity::class.java).apply{
-
             }
             startActivity(intent)
         }
