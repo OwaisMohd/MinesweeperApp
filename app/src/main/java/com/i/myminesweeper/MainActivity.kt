@@ -20,13 +20,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         sharedPreferences = this.getSharedPreferences("time", Context.MODE_PRIVATE)
-        bestTime.text=sharedPreferences.getString("Best","00:00")
-        val lasttime: String? =sharedPreferences.getString("Last","00:00")
+        bestTime.text = sharedPreferences.getString("Best", "00:00")
+        val lasttime: String? = sharedPreferences.getString("Last", "00:00")
 
-        lastGameTime.text= lasttime
+        lastGameTime.text = lasttime
 
         /* when user clicks on Make Custom Button */
-        custombutton.setOnClickListener{
+        custombutton.setOnClickListener {
 
             val intent = Intent(this@MainActivity, CustomBoard::class.java).apply {
                 putExtra("height", 9)  //put the value
@@ -37,26 +37,25 @@ class MainActivity : AppCompatActivity() {
         }
 /* if user clicks on easy radio button */
         easy.setOnClickListener {
-            level="easy"
+            level = "easy"
         }
 
 /* if user clicks on medium difficulty radio button */
-        medium.setOnClickListener{
-            level="medium"
+        medium.setOnClickListener {
+            level = "medium"
         }
 
 /* if user clicks on hard difficulty radio button */
-        hard.setOnClickListener{
-            level="hard"
+        hard.setOnClickListener {
+            level = "hard"
         }
 
 /* if user clicks start button after choosing difficulty level */
         start.setOnClickListener {
 
-            if(level==""){
+            if (level == "") {
                 Toast.makeText(this, "Choose Valid Option", Toast.LENGTH_SHORT).show()
-            }
-            else {
+            } else {
                 val intent = Intent(this, GamePlay::class.java).apply {
                     putExtra("selectedLevel", level)
                     putExtra("flag", 1)
@@ -64,12 +63,11 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
             }
         }
-        rules.setOnClickListener{
+        rules.setOnClickListener {
             showInstructions()
         }
 
     }
-
 
 
     /* showing the instructions to the user */
@@ -88,7 +86,7 @@ class MainActivity : AppCompatActivity() {
         builder.setCancelable(false)
 
         builder.setPositiveButton("OK"
-        ){ dialog, which ->
+        ) { dialog, which ->
 
         }
 
