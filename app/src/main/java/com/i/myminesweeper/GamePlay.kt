@@ -50,9 +50,9 @@ class GamePlay : AppCompatActivity() {
         if (flag == 1) {
             var level = intent.getStringExtra("selectedLevel")
             if (level.equals("easy")) {
-                setUpBoard(8, 8, 12)
+                setUpBoard(8, 8, 10)
             } else if (level.equals("medium")) {
-                setUpBoard(12, 12, 24)
+                setUpBoard(12, 12, 20)
             } else if (level.equals("hard")) {
                 setUpBoard(16, 16, 30)
             }

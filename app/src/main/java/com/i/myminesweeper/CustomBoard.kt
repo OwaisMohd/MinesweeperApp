@@ -2,6 +2,7 @@ package com.i.myminesweeper
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
@@ -26,14 +27,19 @@ class CustomBoard : AppCompatActivity() {
             var height = Integer.parseInt(height.editText?.text.toString())
             var width = Integer.parseInt(width.editText?.text.toString())
             var mine = Integer.parseInt(mines.editText?.text.toString())
-
-            /* passing the values to the gameplay activity */
-            val intent = Intent(this, GamePlay::class.java).apply {
-                putExtra("height", height)  //put the value
-                putExtra("width", width)
-                putExtra("mines", mine)
+            var temp = height * width;
+            if(mine > temp/4){
+                Toast.makeText(this, "Number of mines should be less", Toast.LENGTH_SHORT).show()
             }
-            startActivity(intent)
+            else {
+                /* passing the values to the gameplay activity */
+                val intent = Intent(this, GamePlay::class.java).apply {
+                    putExtra("height", height)  //put the value
+                    putExtra("width", width)
+                    putExtra("mines", mine)
+                }
+                startActivity(intent)
+            }
         }
     }
 
