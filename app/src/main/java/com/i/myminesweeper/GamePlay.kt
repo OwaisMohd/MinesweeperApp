@@ -9,9 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.SystemClock
 import android.util.Log
-import android.view.View
 import android.widget.Chronometer
-import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_game_play.*
@@ -34,7 +32,7 @@ class GamePlay : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game_play)
 
-        chronomter = findViewById(R.id.timer)
+        chronomter = findViewById(R.id.timerTick)
 
         if (!isPlay) {
             chronomter.base = SystemClock.elapsedRealtime()
@@ -46,7 +44,7 @@ class GamePlay : AppCompatActivity() {
         val intent = intent
         var flag = intent.getIntExtra("flag", 2)
 
-        // Setting up board according to the option selected in MainActivity
+        // Setting up board
         if (flag == 1) {
             var level = intent.getStringExtra("selectedLevel")
             if (level.equals("easy")) {
@@ -62,26 +60,24 @@ class GamePlay : AppCompatActivity() {
             var mine = intent.getIntExtra("mines", 0)
             setUpBoard(row, column, mine)
         }
-        restart.setOnClickListener {
+        restart_but.setOnClickListener {
             gameRestart()
         }
     }
 
-    // This function will setup the buttons according to level selected
     private fun setUpBoard(row: Int, col: Int, mine: Int) {
 
-        // Setting up total number of mines
+        // Setting up mines
         mines_left.text = "" + mine
 
-        // Array of buttons to find the position of a particular button
         val cellBoard = Array(row) { Array(col) { MineCell(this) } }
 
-        mineFlag.setOnClickListener {
+        mineFlagBut.setOnClickListener {
             if (choice == 1) {
-                mineFlag.setImageResource(R.drawable.flag)
+                mineFlagBut.setImageResource(R.drawable.flag)
                 choice = 2
             } else {
-                mineFlag.setImageResource(R.drawable.bomb)
+                mineFlagBut.setImageResource(R.drawable.bomb)
                 choice = 1
             }
         }
@@ -89,7 +85,6 @@ class GamePlay : AppCompatActivity() {
         var counter = 1
         var isFirstClick = true
 
-        //Setting up parameters for linear layout
         val params1 = LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 0
@@ -99,7 +94,6 @@ class GamePlay : AppCompatActivity() {
                 LinearLayout.LayoutParams.MATCH_PARENT
         )
 
-//        setting up the linear layout
         for (i in 0 until row) {
             val linearLayout = LinearLayout(this)
             linearLayout.orientation = LinearLayout.HORIZONTAL
@@ -109,7 +103,7 @@ class GamePlay : AppCompatActivity() {
             for (j in 0 until col) {
                 val button = MineCell(this)
 
-                //Buttons are being stored to their corresponding locations in the array
+                //Storing button location
                 cellBoard[i][j] = button
 
                 button.id = counter
@@ -124,10 +118,10 @@ class GamePlay : AppCompatActivity() {
                     if (isFirstClick) {
                         isFirstClick = false
 
-                        // Setting up mines
+                        //mines set
                         setMines(i, j, mine, cellBoard, row, col)
 
-                        //Start Timer
+                        //timer starts
                         startTimer()
 
                     }
@@ -139,14 +133,14 @@ class GamePlay : AppCompatActivity() {
                 linearLayout.addView(button)
                 counter++
             }
-            board.addView(linearLayout)
+            board_layout.addView(linearLayout)
         }
     }
 
-//    function to set random mines when user first clicks on the board
+    // set random mines when user first clicks
 
     private fun setMines(row: Int, col: Int, mine: Int, cellBoard: Array<Array<MineCell>>, rowSize: Int, colSize: Int) {
-        //Generate random coordinates to set mine
+
         var mineCount = mine
         var i = 1
         while (i <= mineCount) {
@@ -172,14 +166,14 @@ class GamePlay : AppCompatActivity() {
         }
     }
 
-    //    timer will start when user first clicks on the board
+    //timer will start when user first clicks on the board
     private fun startTimer() {
-        chronometer = findViewById(R.id.timer)
+        chronometer = findViewById(R.id.timerTick)
         chronometer.base = SystemClock.elapsedRealtime()
         chronometer.start()
     }
 
-    // Move function
+    // Move method
     private fun move(choice: Int, x: Int, y: Int, cellBoard: Array<Array<MineCell>>, rowSize: Int, colSize: Int, mine: Int): Boolean {
 
         if (choice == 1) {
@@ -226,7 +220,6 @@ class GamePlay : AppCompatActivity() {
         return false
     }
 
-    // Handles when board[x][y]==0
     private val xDir = intArrayOf(-1, -1, 0, 1, 1, 1, 0, -1)
     private val yDir = intArrayOf(0, 1, 1, 1, 0, -1, -1, -1)
     private fun handleZero(x: Int, y: Int, cellBoard: Array<Array<MineCell>>, rowSize: Int, colSize: Int) {
@@ -248,7 +241,7 @@ class GamePlay : AppCompatActivity() {
 
     }
 
-    // To update status (ongoing/won)
+    //updating status
     private fun checkStatus(cellBoard: Array<Array<MineCell>>, rowSize: Int, colSize: Int) {
         var flag1 = 0
         var flag2 = 0
@@ -269,7 +262,7 @@ class GamePlay : AppCompatActivity() {
 
     }
 
-    // To restart the game using smiley icon
+    //for restarting the game
     private fun gameRestart() {
         val builder: AlertDialog.Builder = AlertDialog.Builder(this)
 
@@ -318,8 +311,7 @@ class GamePlay : AppCompatActivity() {
         alertDialog.show()
     }
 
-    // Saving chromometer state
-    // This function is used to update and store highscore and lastgame time
+    // This method is used to store best score time and last game time
     private fun updateScore() {
         chronometer.stop()
 
@@ -328,12 +320,11 @@ class GamePlay : AppCompatActivity() {
         val sharedPref = getPreferences(Context.MODE_PRIVATE)
         val lastTime = elapsedTime.toInt()
 
-        // Setting up highscore
         var highScore = sharedPref.getInt(getString(R.string.saved_high_score_key), Integer.MAX_VALUE)
 
         var isHighScore = false
 
-        // Comparing high score if the last game's status is won
+        // setting best high score if the last game's status is won
         if (status == Status.WON) {
             if (lastTime < highScore) {
                 highScore = lastTime
@@ -344,7 +335,7 @@ class GamePlay : AppCompatActivity() {
                 putInt(getString(R.string.last_time), lastTime)
                 commit()
             }
-            // Setting time formats to send to another activity
+
             lastGameTime = "" + ((lastTime / 1000) / 60) + " m " + ((lastTime / 1000) % 60) + " s"
         } else {
             lastGameTime = " Lost!"
@@ -358,11 +349,11 @@ class GamePlay : AppCompatActivity() {
             fastestTime = "" + ((highScore / 1000) / 60) + " m " + ((highScore / 1000) % 60) + " s";
         }
 
-//        if user lost then sending the result to result activity
+        // when player lost
         if (status == Status.WON) {
 
 
-            var currentTime = timer.text.toString()
+            var currentTime = timerTick.text.toString()
             println("current time $currentTime")
             val sharedPreferences: SharedPreferences =
                     this.getSharedPreferences("time", Context.MODE_PRIVATE)
@@ -371,7 +362,7 @@ class GamePlay : AppCompatActivity() {
             if (best!! > currentTime) {
                 sharedPreferences.edit().putString("Best", currentTime).apply()
             }
-            timer.stop()
+            timerTick.stop()
 
             val intent = Intent(this, Results::class.java).apply {
                 putExtra("result", "Congratulations🤩\nYOU WON")
@@ -379,17 +370,17 @@ class GamePlay : AppCompatActivity() {
             startActivity(intent)
         }
 
-//        if user win then seding the result to main activity
+        // when player won
         else if (status == Status.LOST) {
 
-            var currentTime = timer.text.toString()
+            var currentTime = timerTick.text.toString()
             println("current time $currentTime")
 
             val sharedPreferences: SharedPreferences =
                     this.getSharedPreferences("time", Context.MODE_PRIVATE)
 
             sharedPreferences.edit().putString("Last", currentTime).apply()
-//            timer.stop()
+            //timer.stop()
 
             val intent = Intent(this, Results::class.java).apply {
                 putExtra("result", "You Lost\nTry Again")
@@ -399,9 +390,7 @@ class GamePlay : AppCompatActivity() {
 
     }
 
-
-    // This will carry data to store highscore and last game time
-    // on getting back to main activity
+    // carrying data back to main activity
     private fun toMainActivity() {
         Log.d("MainActivity", "inside to main" + fastestTime + " " + lastGameTime)
         val intent = Intent(this@GamePlay, MainActivity::class.java)
@@ -420,7 +409,7 @@ class GamePlay : AppCompatActivity() {
                 else if (it.isMarked)
                     it.setBackgroundResource(R.drawable.flag)
                 else if (status == Status.LOST && it.value == MINE) {
-                    restart.setImageResource(R.drawable.sad_face)
+                    restart_but.setImageResource(R.drawable.sad_face)
                     it.setBackgroundResource(R.drawable.mine)
                 }
                 //To show that mine is not present here but it is marked
@@ -428,7 +417,7 @@ class GamePlay : AppCompatActivity() {
                     it.setBackgroundResource(R.drawable.crossedflag)
                 } else if (status == Status.WON && it.value == MINE) {
                     it.setBackgroundResource(R.drawable.flag)
-                    restart.setImageResource(R.drawable.won)
+                    restart_but.setImageResource(R.drawable.won)
                 } else
                     it.text = " "
             }
@@ -436,8 +425,7 @@ class GamePlay : AppCompatActivity() {
         }
     }
 
-    // This function will display images according to status
-    // Game status is checked in display function (Called from display function)
+    // setting number images
     private fun setNumberImage(button: MineCell) {
         if (button.value == 0) button.setBackgroundResource(R.drawable.zero)
         if (button.value == 1) button.setBackgroundResource(R.drawable.one)
@@ -458,7 +446,6 @@ class GamePlay : AppCompatActivity() {
     }
 }
 
-// Includes all the three game status
 enum class Status {
     WON,
     ONGOING,

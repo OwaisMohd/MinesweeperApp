@@ -25,8 +25,8 @@ class MainActivity : AppCompatActivity() {
 
         lastGameTime.text = lasttime
 
-        /* when user clicks on Make Custom Button */
-        custombutton.setOnClickListener {
+        // Make Custom Button
+        custom_button.setOnClickListener {
 
             val intent = Intent(this@MainActivity, CustomBoard::class.java).apply {
                 putExtra("height", 9)  //put the value
@@ -35,23 +35,22 @@ class MainActivity : AppCompatActivity() {
             }
             startActivity(intent)
         }
-/* if user clicks on easy radio button */
-        easy.setOnClickListener {
+
+        easy_level.setOnClickListener {
             level = "easy"
         }
 
-/* if user clicks on medium difficulty radio button */
-        medium.setOnClickListener {
+
+        medium_level.setOnClickListener {
             level = "medium"
         }
 
-/* if user clicks on hard difficulty radio button */
-        hard.setOnClickListener {
+        hard_level.setOnClickListener {
             level = "hard"
         }
 
-/* if user clicks start button after choosing difficulty level */
-        start.setOnClickListener {
+        // start button click handling
+        start_button.setOnClickListener {
 
             if (level == "") {
                 Toast.makeText(this, "Choose Valid Option", Toast.LENGTH_SHORT).show()
@@ -63,25 +62,23 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
             }
         }
-        rules.setOnClickListener {
+        rules_button.setOnClickListener {
             showInstructions()
         }
 
     }
 
 
-    /* showing the instructions to the user */
+    // instructions dialog
     private fun showInstructions() {
         val builder: AlertDialog.Builder = AlertDialog.Builder(this)
 
         builder.setTitle("INSTRUCTIONS")
-        builder.setMessage("The purpose of the game is to open all the cells of the board which do not contain a bomb. You lose if you set off a bomb cell.\n" +
+        builder.setMessage("The purpose of the game is to open all the cells of the board. You lose if you open a bomb cell.\n" +
                 "\n" +
-                "Every non-bomb cell you open will tell you the total number of bombs in the eight neighboring cells. Once you are sure that a cell contains a bomb, you can right-click to put a flag it on it as a reminder. Once you have flagged all the bombs around an open cell, you can quickly open the remaining non-bomb cells by shift-clicking on the cell.\n" +
+                "Every non-bomb cell you open will tell you the total number of bombs in the eight neighboring cells. Once you are sure that a cell contains a bomb, you can click bomb button at the top to start putting flag on the cells as a reminder. Once you have flagged all the bombs around an open cell, you can quickly open the remaining non-bomb cells.\n" +
                 "\n" +
-                "To start a new game (abandoning the current one), just click on the yellow face button.\n" +
-                "\n" +
-                "Happy mine hunting!")
+                "Go Play!")
 
         builder.setCancelable(false)
 

@@ -8,7 +8,7 @@
     tools:context=".Results">
 
     <TextView
-        android:id="@+id/show_name"
+        android:id="@+id/result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="36dp"
@@ -16,13 +16,13 @@
         android:text="TextView"
         android:textColor="#fff"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/show_result"
+        app:layout_constraintBottom_toTopOf="@+id/try_again"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/show_result"
+        android:id="@+id/try_again"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="36dp"

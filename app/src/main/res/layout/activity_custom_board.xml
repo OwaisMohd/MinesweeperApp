@@ -9,7 +9,7 @@
 
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textView_dimen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
@@ -23,7 +23,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/submit"
+        android:id="@+id/submit_dimen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
@@ -31,21 +31,21 @@
         android:text="Submit"
         android:textColor="#000"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="@+id/textView_dimen"
         app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/mi" />
+        app:layout_constraintStart_toStartOf="@+id/textView_dimen"
+        app:layout_constraintTop_toBottomOf="@+id/numberOfMines" />
 
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/mi"
+        android:id="@+id/numberOfMines"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:hint="Enter Mines*"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/wi">
+        app:layout_constraintTop_toBottomOf="@+id/width">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -55,16 +55,16 @@
 
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/hi"
+        android:id="@+id/height"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:hint="Enter Height*"
-        app:layout_constraintBottom_toTopOf="@+id/wi"
+        app:layout_constraintBottom_toTopOf="@+id/width"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView">
+        app:layout_constraintTop_toBottomOf="@+id/textView_dimen">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -73,14 +73,14 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/wi"
+        android:id="@+id/width"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:hint="Enter Width*"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hi">
+        app:layout_constraintTop_toBottomOf="@+id/height">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"

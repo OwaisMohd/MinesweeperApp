@@ -8,33 +8,33 @@
     tools:context=".GamePlay">
 
     <Chronometer
-        android:id="@+id/timer"
+        android:id="@+id/timerTick"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:textColor="#000"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/game_timer"
+        app:layout_constraintEnd_toEndOf="@+id/TextView_timer"
         app:layout_constraintHorizontal_bias="0.586"
-        app:layout_constraintStart_toStartOf="@+id/game_timer"
-        app:layout_constraintTop_toBottomOf="@+id/game_timer" />
+        app:layout_constraintStart_toStartOf="@+id/TextView_timer"
+        app:layout_constraintTop_toBottomOf="@+id/TextView_timer" />
 
     <ImageButton
-        android:id="@+id/restart"
+        android:id="@+id/restart_but"
         android:layout_width="43dp"
         android:layout_height="53dp"
         android:layout_marginStart="12dp"
         android:layout_marginLeft="12dp"
         android:background="#00FFFFFF"
         android:contentDescription="TODO"
-        app:layout_constraintBottom_toTopOf="@+id/board"
-        app:layout_constraintStart_toEndOf="@+id/minetext"
+        app:layout_constraintBottom_toTopOf="@+id/board_layout"
+        app:layout_constraintStart_toEndOf="@+id/mine_count"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.8"
         app:srcCompat="@drawable/ic_baseline_refresh_24" />
 
     <ImageButton
-        android:id="@+id/mineFlag"
+        android:id="@+id/mineFlagBut"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -43,14 +43,14 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:background="#00FFFFFF"
-        app:layout_constraintEnd_toStartOf="@+id/timer"
-        app:layout_constraintStart_toEndOf="@+id/restart"
+        app:layout_constraintEnd_toStartOf="@+id/timerTick"
+        app:layout_constraintStart_toEndOf="@+id/restart_but"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/bomb" />
 
     <LinearLayout
 
-        android:id="@+id/board"
+        android:id="@+id/board_layout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
@@ -59,7 +59,7 @@
         app:layout_constraintTop_toBottomOf="@+id/mines_left" />
 
     <TextView
-        android:id="@+id/minetext"
+        android:id="@+id/mine_count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -72,7 +72,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/game_timer"
+        android:id="@+id/TextView_timer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -83,7 +83,7 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.862"
-        app:layout_constraintStart_toEndOf="@+id/minetext"
+        app:layout_constraintStart_toEndOf="@+id/mine_count"
         app:layout_constraintTop_toTopOf="parent" />
 
 
@@ -97,10 +97,10 @@
         android:text="@string/_12"
         android:textColor="#000"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/minetext"
+        app:layout_constraintEnd_toEndOf="@+id/mine_count"
         app:layout_constraintHorizontal_bias="0.387"
-        app:layout_constraintStart_toStartOf="@+id/minetext"
-        app:layout_constraintTop_toBottomOf="@+id/minetext" />
+        app:layout_constraintStart_toStartOf="@+id/mine_count"
+        app:layout_constraintTop_toBottomOf="@+id/mine_count" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
